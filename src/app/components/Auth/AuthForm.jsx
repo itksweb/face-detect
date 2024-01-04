@@ -2,13 +2,10 @@
 import { useState } from "react";
 import classes from "./AuthForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-//import { authActions } from "../../store/auth-slice";
+import api from "@/lib/lib";
 import { authActions } from "@/store/auth-slice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
-const LOGIN_URL = "/api/sign-in";
-const SIGNUP_URL = "/api/sign-up";
 
 const AuthForm = () => {
   const router = useRouter();
@@ -20,7 +17,7 @@ const AuthForm = () => {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  let url = isLogin ? LOGIN_URL : SIGNUP_URL;
+  let url = isLogin ? `${api}sign-in` : `${api}sign-up`;
 
   const switchAuthModeHandler = () => {
     dispatch(authActions.switchForm(isLogin ? false : true));
