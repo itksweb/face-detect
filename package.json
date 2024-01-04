@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^5.5.2",
+    "@prisma/client": "^5.7.1",
     "@reduxjs/toolkit": "^1.9.5",
     "bcrypt": "^5.1.1",
     "clarifai": "^2.9.1",
@@ -18,11 +18,12 @@
     "react-dom": "^18",
     "react-redux": "^8.1.2",
     "react-tsparticles": "^2.12.2",
-    "tsparticles": "^2.12.0"
+    "tsparticles": "^2.12.0",
+    "vercel": "^32.3.0"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "13.5.6",
-    "prisma": "^5.5.2"
+    "prisma": "^5.7.1"
   }
 }

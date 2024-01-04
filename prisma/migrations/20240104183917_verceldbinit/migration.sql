@@ -1,17 +1,21 @@
 -- CreateTable
 CREATE TABLE "logins" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
-    "hash" TEXT NOT NULL
+    "hash" TEXT NOT NULL,
+
+    CONSTRAINT "logins_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "users" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "joined" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "entries" INTEGER NOT NULL DEFAULT 0
+    "joined" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "entries" INTEGER NOT NULL DEFAULT 0,
+
+    CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex

@@ -3,17 +3,14 @@ import bcrypt from "bcrypt";
 import prisma from "@/lib/prisma";
 
 const main = async (email, password) => {
-  const user = await prisma.logins.findUnique({
+  const person = await prisma.user.findUnique({
     where: { email },
   });
 
-  if (user) {
-    const hashed = bcrypt.compareSync(password, user.hash);
+  if (person.id) {
+    const hashed = bcrypt.compareSync(password, person.hash);
     if (hashed) {
-      const profile = await prisma.users.findUnique({
-        where: { email },
-      });
-      return profile;
+      return person;
     } else {
       return "wrong email/password";
     }

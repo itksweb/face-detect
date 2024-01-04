@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 const updateUserEntries = async (id) => {
-  const updeatedEntry = await prisma.users.update({
+  const updeatedEntry = await prisma.user.update({
     where: { id },
     data: {
       entries: { increment: 1 },
