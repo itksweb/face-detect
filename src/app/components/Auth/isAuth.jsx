@@ -14,7 +14,7 @@ export default function isAuth(Component) {
       if (!auth) {
         return redirect("/sign-in");
       }
-    }, []);
+    }, [auth]);
 
     if (!auth) {
       return null;
