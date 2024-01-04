@@ -1,0 +1,18 @@
+/* .recognize {
+  background-color: blueviolet;
+  padding: 0;
+} */
+.recognize .posrel {
+  position: relative;
+  margin: 0;
+}
+
+.bounding_box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2 inset;
+  cursor: pointer;
+  /* left: 128.4px;
+  top: 42.9px;
+  right: 142.4px;
+  bottom: 86.7px; */
+}

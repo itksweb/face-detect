@@ -1,0 +1,12 @@
+.authe {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* .authe p {
+  color: white;
+} */
+.detectForm {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+}
