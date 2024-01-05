@@ -49,17 +49,26 @@ I started by fleshing out the Jsx component for authentication, after which I wo
 I got better at fleshing out and manipulating data fetched from api.
 
 ```js
-const fetchNewAdvice = () => {
-  fetch("https://api.adviceslip.com/advice")
-    .then((respose) => {
-      return respose.json();
-    })
-    .then((data) => {
-      const poi = { ...data.slip };
-      setAdvice(poi);
-    })
-    .catch((err) => console.log(err));
-  console.log("fetched");
+const calculateFaceLocation = (data) => {
+  const image = document.getElementById("imgee");
+  if (data.length !== 0) {
+    let all = [];
+    for (const box of data) {
+      let data = box.region_info.bounding_box;
+      let item = {
+        id: box.id,
+        box: {
+          left: (data.left_col * image.width).toFixed(1) + "px",
+          top: (data.top_row * image.height).toFixed(1) + "px",
+          right: (image.width - data.right_col * image.width).toFixed(1) + "px",
+          bottom:
+            (image.height - data.bottom_row * image.height).toFixed(1) + "px",
+        },
+      };
+      all = [...all, item];
+    }
+    return all;
+  }
 };
 ```
 
