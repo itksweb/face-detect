@@ -8,18 +8,8 @@ import { useRouter } from "next/navigation";
 const MainNavigation = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isAuthenticated, isLogin } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
-  const showSignInForm = () => {
-    if (!isLogin) {
-      dispatch(authActions.switchForm(true));
-    }
-  };
-  const showSignUpForm = () => {
-    if (isLogin) {
-      dispatch(authActions.switchForm(false));
-    }
-  };
   const handleLogout = () => {
     dispatch(authActions.logout());
     router.push("/");
@@ -33,10 +23,10 @@ const MainNavigation = () => {
         <ul>
           {!isAuthenticated && (
             <>
-              <li onClick={showSignInForm}>
+              <li>
                 <Link href="/sign-in">Login</Link>
               </li>
-              <li onClick={showSignUpForm}>
+              <li>
                 <Link href="/sign-up">Register</Link>
               </li>
             </>

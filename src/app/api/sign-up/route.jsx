@@ -4,13 +4,16 @@ const saltRounds = 10;
 import prisma from "@/lib/prisma";
 
 const main = async (name, email, hash) => {
-  const user = await prisma.user.create({
+  const person = await prisma.user.create({
     data: { email, name, hash, joined: new Date() },
   });
-  // const login = await prisma.logins.create({
-  //   data: { email, hash },
-  // });
-  return user;
+  const nUser = {
+    name: person.name,
+    email: person.email,
+    entries: person.entries,
+    id: person.id,
+  };
+  return nUser;
 };
 
 export async function POST(req) {

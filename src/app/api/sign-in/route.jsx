@@ -10,7 +10,8 @@ const main = async (email, password) => {
   if (person.id) {
     const hashed = bcrypt.compareSync(password, person.hash);
     if (hashed) {
-      return person;
+      const { name, email, entries, id } = person;
+      return { name, email, entries, id };
     } else {
       return "wrong email/password";
     }

@@ -1,14 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./AuthForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import api from "@/lib/lib";
 import { authActions } from "@/store/auth-slice";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 
 const AuthForm = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const { isLogin, isAuthenticated, profile } = useSelector(
     (state) => state.auth
   );
@@ -19,6 +20,9 @@ const AuthForm = () => {
   const dispatch = useDispatch();
   let url = isLogin ? `${api}sign-in` : `${api}sign-up`;
 
+  useEffect(() => {
+    console.log("From form: ", pathname);
+  }, []);
   const switchAuthModeHandler = () => {
     dispatch(authActions.switchForm(isLogin ? false : true));
   };
