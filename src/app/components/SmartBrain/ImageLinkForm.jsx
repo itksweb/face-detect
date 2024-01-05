@@ -18,7 +18,7 @@ const ImageLinkForm = () => {
   useEffect(() => {
     dispatch(detectActions.setImage(imageUrl));
     dispatch(detectActions.updateFaceLocation());
-  }, [imageUrl]);
+  }, [imageUrl, dispatch]);
 
   //useEffect(() => console.log(imag), [imag]);
 
