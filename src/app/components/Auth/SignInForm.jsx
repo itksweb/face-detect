@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "@/store/auth-slice";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Button, Input } from "../UI/Ui";
+import { Button, Input } from "../UI/UI";
 
 const SignInForm = () => {
   const dispatch = useDispatch();
