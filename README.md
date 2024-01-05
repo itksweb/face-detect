@@ -17,7 +17,7 @@ This is an AI face recognition app. It utilizes the Clarifai face recognition AP
 
 ### Screenshot
 
-[](./screenshot.jpg)
+![](./screenshot.jpg)
 
 ### The challenge
 
